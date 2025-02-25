@@ -29,19 +29,40 @@ def signUp():
 
 
 
+######## Using if-else ########
+# def main():
+#     while True:
+#         key=int(input('''\nEnter 1 for signup...
+#                       \nEnter 2 for signin...
+#                       \nEnter 3 to exit...\n'''))
+#         if(key==3):
+#             break
+#         elif(key==1):
+#             signUp()
+#         elif(key==2):
+#             signIn()
+#         else:
+#             print("Please enter a valid parameter.")
+
+
+
+############ Using Switches ###########
 def main():
     while True:
         key=int(input('''\nEnter 1 for signup...
                       \nEnter 2 for signin...
                       \nEnter 3 to exit...\n'''))
-        if(key==3):
-            break
-        elif(key==1):
-            signUp()
-        elif(key==2):
-            signIn()
-        else:
-            print("Please enter a valid parameter.")
+        match key:
+            case 1:
+                signUp()
+            case 2:
+                signIn()
+            case 3:
+                break
+            case _:
+               print("Please enter a valid parameter.")
+
+
 
 if __name__== "__main__":
     main()
