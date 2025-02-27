@@ -1,14 +1,4 @@
-def multiplication(a, b):
-    return a*b
-
-def addition(a, b):
-    return a+b
-
-def division(a, b):
-    return a/b
-
-def substraction(a, b):
-    return a-b
+from calculator.calculator import multiplication, addition, substraction, division
 
 def main():
     a=int(input("Enter the first number: "))
