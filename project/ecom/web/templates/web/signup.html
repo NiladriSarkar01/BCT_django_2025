@@ -1,0 +1,172 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes moveUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes backgroundAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://img.freepik.com/free-photo/anime-style-portrait-traditional-japanese-samurai-character_23-2151499086.jpg?t=st=1741251578~exp=1741255178~hmac=5eb1cdc2ffe59c8bb1490d4f17a85b210e4ec5b8088471a65b085d18b57e872a&w=1800');
+            background-size: cover;
+            animation: fadeIn 2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color:rgba(255, 255, 255, 0.59);
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            box-sizing: border-box;
+            animation: moveUp 1s ease-out;
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color:rgba(0, 0, 0, 1);
+        }
+
+        .container label {
+            display: block;
+            margin-bottom: 5px;
+            color: #e2ebeae9;
+        }
+
+        .container input[type="text"],
+        .container input[type="email"],
+        .container input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 1em;
+            background-color: #fff;
+            color: #333;
+            transition: border-color 0.3s;
+        }
+
+        .container input[type="text"]:focus,
+        .container input[type="email"]:focus,
+        .container input[type="password"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-sizing: border-box;
+            transition: background-color 0.3s, transform 0.3s;
+            font-size: 1em;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+        .container button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .container button[type="submit"] {
+            background-color: #007bff; /* Adjust if needed */
+        }
+
+        .container button[type="submit"]:hover {
+            background-color: #0056b3; /* Adjust if needed */
+        }
+
+        .container button[type="button"] {
+            background-color: #6c757d; /* Adjust if needed */
+        }
+
+        .container button[type="button"]:hover {
+            background-color: #5a6268; /* Adjust if needed */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Registration</h2>
+        <form method="post">
+            {% csrf_token %}
+            <label for="first_name" style="color:#000">First Name</label>
+            <input type="text" id="first_name" name="first_name" placeholder="First Name" required>
+
+            <label for="last_name" style="color:#000">Last Name</label>
+            <input type="text" id="last_name" name="last_name" placeholder="Last Name" required>
+
+            <label for="email" style="color:#000">Email</label>
+            <input type="email" id="email" name="email" placeholder="email@gmail.com" required>
+
+            <label for="password" style="color:#000">Password</label>
+            <input type="password" id="password" name="password" 
+            placeholder="Password" 
+            minlength="8" 
+            pattern="(?=.*\d)(?=.*[A-Z]).{8,}" 
+            title="Password must be at least 8 characters long, and include at least one uppercase letter and one digit."
+            required><br>
+
+            <button type="submit">Register</button>
+            <a href="{% url 'login' %}" class="href">
+                <button type="button">Sign In</button>
+            </a>
+        </form>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    padding: 0;
+
+}
+
+div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    height: 100vh;
+    width: 100%;
+}
+
+h2 {
+    font-size: 50px;
+    padding: 10px;
+    background-color: cadetblue;
+    border-radius: 10px;
+}
+
+div:nth-child(1) {
+    background-image: url('./guts.jpg');
+    /* background-attachment: fixed; */
+    background-size: cover;
+}
+
+
+div:nth-child(2) {
+    background-color: blanchedalmond;
+}
+
+div:nth-child(3) {
+    background-image: url('./hyku.jpg');
+    /* background-attachment: fixed; */
+    background-size: cover;
+}
+
+div:nth-child(4) {
+    background-color: aquamarine;
+}

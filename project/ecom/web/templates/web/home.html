@@ -1,0 +1,190 @@
+{% extends "base.html" %} {% load static %} {%block title%}E-com{%endblock%}
+{%block content%} {% comment %} gallery {% endcomment %}
+
+<div class="titles" style="text-align: center; color: white">
+  <p style="align-items: center">OTAKU FAMILY</p>
+  <h1>GALERY</h1>
+</div>
+
+<div
+  class="container text-center parallax"
+  id="parallax"
+  style="padding: 0; margin-left: auto; margin-right: auto"
+>
+  <div class="row">
+    <div class="col">
+      <div class="row">
+        <div class="col">
+          <img src="{% static "./res/anya1.jpg" %}" alt="demo" class="gallery-sm"/>
+        </div>
+        <div class="col">
+          <img src="{% static "./res/dan-dadan.jpg" %}" alt="demo"  class="gallery-sm"/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <img src="{% static "./res/guts.jpg" %}" alt="demo"  class="gallery-sm" />
+        </div>
+        <div class="col">
+          <img src="{% static "./res/hyku.jpg" %}" alt="demo"  class="gallery-sm"/>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <img src="{% static "./res/one_piece2.jpg" %}" alt="demo" style="width:
+      20rem; height: 20rem; margin-top:auto;margin-button:auto" />
+    </div>
+    <div class="col">
+      <div class="row">
+        <div class="col">
+          <img src="{% static "./res/one_piece1.jpg" %}" alt="demo"
+          class="gallery-sm"/>
+        </div>
+        <div class="col">
+          <img src="{% static "./res/solo-leveling.jpg" %}" alt="demo"
+          class="gallery-sm"/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <img src="{% static "./res/sukuna.jpg" %}" alt="demo"  class="gallery-sm"/>
+        </div>
+        <div class="col">
+          <img id="test1"
+            src="static/res/luffy-figure.jpeg"
+            alt="demo"
+             class="gallery-sm"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% comment %} Trending collection {% endcomment %}
+
+<div class="titles" style="color: white">
+  <h1>Trending Collection</h1>
+  <p style="align-items: center">Try the most trending collections</p>
+</div>
+
+<div class="row">
+  <div class="category-div" style="background-color: #00000000">
+    <div style="width: max-content; border-radius: 1rem">
+      <ul class="category-list">
+        {% for product in products %}
+        {% if product.is_trending == True %}
+        <li class="category-list-item">
+          <div class="product-container" style="width: 30rem; height:20rem">
+            <div class="product-gallery" style="height:15rem">
+              <img
+                id="mainImage"
+                src="{{product.image.url}}"
+                alt="Product Image"
+              />
+            </div>
+            <div class="product-details">
+              <h3>{{product.name}}</h3>
+              <p><del>₹{{product.price}}/-</del></p>
+              <p class="price">₹{{product.price}}/-</p>
+              <p class="description">{{product.description}}</p>
+              <button  class="add-to-cart" type="submit">Add to Cart</button>
+            </div>
+          </div>
+        </li>
+        {% endif %}
+        
+        {% endfor %}
+        <li></li>
+      </ul>
+    </div>
+  </div>
+  
+</div>
+
+<!-- category -->
+
+<div class="titles" style="color: white">
+  <h1>Category</h1>
+  <p style="align-items: center">Try the most trending collections</p>
+</div>
+
+<div class="row">
+  <div class="category-div" style="background-color: #00000000">
+    <div style="width: max-content; border-radius: 1rem">
+      <ul class="category-list">
+        {% for category in categories %}
+        <li class="category-list-item">
+          <div class="card" style="width: 18rem;">
+            <img src={{category.image.url}} class="card-img-top" alt="..." style="height:12rem">
+            <div class="card-body">
+              <h5 class="card-title">{{ category.name }}</h5>
+            </div>
+          </div>
+        </li>
+        {% endfor %}
+        <li></li>
+      </ul>
+    </div>
+  </div>
+  
+</div>
+
+
+<div class="titles" style="color: white">
+  <h1>Anime</h1>
+  <p style="align-items: center">Try the most trending collections</p>
+</div>
+
+<div class="row">
+  <div class="category-div" style="background-color: #00000000">
+    <div style="width: max-content; border-radius: 1rem">
+      <ul class="category-list">
+        {% for anime in animes %}
+        <li class="category-list-item">
+          <div class="card" style="width: 18rem;">
+            <img src={{anime.image.url}} class="card-img-top" alt="..." style="height:12rem">
+            <div class="card-body">
+              <h5 class="card-title">{{ anime.name }}</h5>
+            </div>
+          </div>
+        </li>
+        {% endfor %}
+        <li></li>
+      </ul>
+    </div>
+  </div>
+  
+</div>
+
+<script>
+  function scroll() {
+    window.scrollTo(0, 100);
+  }
+</script>
+
+{% comment %} footer {% endcomment %} {% endblock %}{% block footer %}
+<div class="footer">
+  <div class="box1">
+    <b class="title">About Us</b>
+    <div class="para">
+      Our Journey Welcome to [Your Store Name], your ultimate destination for
+      anime-inspired merchandise! Our journey began with a shared passion for
+      anime and a dream to bring high-quality collectibles, apparel, and
+      accessories to fellow fans. What started as a small passion project
+      quickly grew into a full-fledged store, fueled by the love and enthusiasm
+      of the anime community. From sourcing unique and authentic products to
+      collaborating with talented
+    </div>
+  </div>
+  <!-- </div> -->
+  <div class="box2">
+    <a href="https://www.instagram.com" style="color: white; font-size: 2rem"
+      ><i class="bi bi-instagram"></i
+    ></a>
+    <a href="https://www.facebook.com"
+      ><i class="bi bi-facebook" style="color: white; font-size: 2rem"></i
+    ></a>
+  </div>
+</div>
+{% endblock %}
